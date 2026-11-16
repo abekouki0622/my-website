@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山田太郎 | 自己紹介</title>
+  <style>
+    /* リセットとベース設定 */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-color: #f3f6f9;
+      --card-bg: #ffffff;
+      --primary: #1d4ed8;
+      --primary-light: #eff6ff;
+      --text-main: #1e293b;
+      --text-sub: #475569;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* レイアウトコンテナ */
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    /* ヘッダー（プロフィール） */
+    .profile-header {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      align-self: flex-start;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 9999px;
+    }
+
+    .name {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
+    }
+
+    /* メイングリッド（広い画面では2カラム） */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-full {
+      grid-column: 1 / -1;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-title-bar {
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .card-text {
+      font-size: 1rem;
+      color: var(--text-sub);
+    }
+
+    /* 趣味リスト */
+    .hobby-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hobby-item {
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 8px 18px;
+      border-radius: 8px;
+    }
+
+    /* フッター */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* 狭い画面（スマートフォンなど）向け調整 */
+    @media (max-width: 640px) {
+      .container {
+        padding: 24px 16px;
+      }
+
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 20px;
+        gap: 16px;
+      }
+
+      .badge {
+        align-self: center;
+      }
+
+      .name {
+        font-size: 1.5rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .card {
+        padding: 22px 20px;
+      }
+
+      .hobby-list {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- プロフィール -->
+    <header class="profile-header">
+      <div class="avatar" aria-hidden="true">山</div>
+      <div class="profile-info">
+        <span class="badge">大学1年生</span>
+        <h1 class="name">山田太郎</h1>
+      </div>
+    </header>
+
+    <!-- 詳細セクション -->
+    <main class="grid">
+      <!-- 経歴 -->
+      <section class="card">
+        <h2 class="card-title">
+          <span class="card-title-bar" aria-hidden="true"></span>
+          経歴
+        </h2>
+        <p class="card-text">大学生</p>
+      </section>
+
+      <!-- 趣味 -->
+      <section class="card">
+        <h2 class="card-title">
+          <span class="card-title-bar" aria-hidden="true"></span>
+          趣味
+        </h2>
+        <ul class="hobby-list">
+          <li class="hobby-item">卓球</li>
+          <li class="hobby-item">野球観戦</li>
+        </ul>
+      </section>
+
+      <!-- その他（研究） -->
+      <section class="card card-full">
+        <h2 class="card-title">
+          <span class="card-title-bar" aria-hidden="true"></span>
+          研究について
+        </h2>
+        <p class="card-text">ソフトウェアのモデリングに関する研究をしています。</p>
+      </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+      <p>&copy; 山田太郎</p>
+    </footer>
+  </div>
+</body>
+</html>
